@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cart-service
-        image: ${ACR_NAME}.azurecr.io/cart-service:latest
+        image: nginx:latest
         ports:
         - containerPort: 8082
         resources:
@@ -25,8 +25,3 @@ spec:
           requests:
             cpu: "0.2"
             memory: "256Mi"
-        env:
-        - name: SPRING_DATA_MONGODB_URI
-          value: mongodb://mongodb:27017/ecommerce-db
-        - name: PRODUCT_SERVICE_URL
-          value: http://product-service

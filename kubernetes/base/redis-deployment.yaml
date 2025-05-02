@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product-service
+  name: redis
   namespace: ecommerce
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product-service
+      app: redis
   template:
     metadata:
       labels:
-        app: product-service
+        app: redis
     spec:
       containers:
-      - name: product-service
-        image: nginx:latest
+      - name: redis
+        image: redis:alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 6379
         resources:
           limits:
-            cpu: "0.5"
-            memory: "512Mi"
-          requests:
-            cpu: "0.2"
+            cpu: "0.3"
             memory: "256Mi"
+          requests:
+            cpu: "0.1"
+            memory: "128Mi"
