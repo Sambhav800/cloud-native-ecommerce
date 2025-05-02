@@ -48,3 +48,23 @@ Continuous integration and deployment are handled with GitHub Actions:
 - Container image creation and publishing
 - Kubernetes manifests deployment
 - Environment-specific configurations
+
+## Monitoring and Observability
+
+The platform includes a robust monitoring stack:
+
+- **Prometheus**: For metrics collection and alerting
+- **Grafana**: For visualization and dashboards
+
+Key metrics being monitored:
+- API latency and throughput
+- Error rates
+- Resource utilization
+- Database performance
+- Custom business metrics
+
+Dashboards are set up to monitor:
+- Overall system health
+- Individual microservice performance
+- Resource utilization trends
+- Business KPIs
