@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: ${ACR_NAME}.azurecr.io/user-service:latest
+        ports:
+        - containerPort: 8081
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          value: mongodb://mongodb:27017/ecommerce-db

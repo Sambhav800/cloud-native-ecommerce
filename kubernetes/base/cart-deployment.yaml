@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-service
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-service
+  template:
+    metadata:
+      labels:
+        app: cart-service
+    spec:
+      containers:
+      - name: cart-service
+        image: ${ACR_NAME}.azurecr.io/cart-service:latest
+        ports:
+        - containerPort: 8082
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          value: mongodb://mongodb:27017/ecommerce-db
+        - name: PRODUCT_SERVICE_URL
+          value: http://product-service

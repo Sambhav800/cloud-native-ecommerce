@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: ${ACR_NAME}.azurecr.io/api-gateway:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
