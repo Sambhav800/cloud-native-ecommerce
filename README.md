@@ -23,27 +23,6 @@ This project implements a microservices-based e-commerce platform with:
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Prometheus, Grafana
 
-## Project Structure
-/cloud-native-ecommerce
-├── terraform/                # Infrastructure as Code
-│   ├── main.tf              # Main Terraform configuration
-│   ├── variables.tf         # Variable definitions
-│   └── outputs.tf           # Output values
-├── kubernetes/              # Kubernetes manifests
-│   ├── base/                # Base deployment configs
-│   │   ├── mongodb/         # Database deployment
-│   │   ├── services/        # Microservice deployments
-│   │   └── api-gateway/     # API Gateway configs
-│   └── monitoring/          # Monitoring stack
-├── src/                     # Application source code
-│   ├── product-service/     # Product catalog microservice
-│   ├── user-service/        # User authentication & management
-│   ├── cart-service/        # Shopping cart microservice
-│   ├── order-service/       # Order processing microservice
-│   ├── payment-service/     # Payment processing service
-│   └── api-gateway/         # API Gateway service
-└── .github/workflows/       # CI/CD pipelines## Architecture Highlights
-
 ### Microservices Design
 Each service is independently deployable and scalable, following these principles:
 - Single Responsibility Principle
