@@ -23,7 +23,8 @@ This project implements a microservices-based e-commerce platform with:
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Prometheus, Grafana
 
-## Project Structure/cloud-native-ecommerce
+## Project Structure
+/cloud-native-ecommerce
 ├── terraform/                # Infrastructure as Code
 │   ├── main.tf              # Main Terraform configuration
 │   ├── variables.tf         # Variable definitions
